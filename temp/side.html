@@ -1,0 +1,14 @@
+<style>
+    .li-manm{
+        color: #000;
+        height: 25px;
+        margin-bottom:10px;
+    }
+</style>
+<ul class="list-group">
+    <li class="gr list-group-item" {% if 'dashboard' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} ><a class="li-manm nav-link" {% if 'dashboard' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} href="{% url 'dashboard' %}">My Account</a></li>
+    <li class="gr list-group-item" {% if 'change_password' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} ><a class="li-manm nav-link" {% if 'change_password' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} href="{% url 'change_password' %}">Change Password</a></li>
+    <li class="gr list-group-item" {% if 'profile_pic' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} ><a class="li-manm nav-link" {% if 'profile_pic' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} href="{% url 'profile_pic' %}">Update Profile Picture</a></li>
+    <li class="gr list-group-item" {% if 'edit_acc' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} > <a class="li-manm nav-link" {% if 'edit_acc' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} href="{% url 'edit_acc' %}">Eddit Account</a></li>
+    <li class="gr list-group-item" {% if 'acc_set' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} ><a class="li-manm nav-link" {% if 'acc_set' in request.path %}style="background-color: #234E70; color: #fff;"{% endif %} href="{% url 'acc_set' %}">Account Setting</a></li>
+</ul>

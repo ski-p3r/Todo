@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+	<div class="cd card">
+        <div class="man">
+            {% include 'side.html' %}
+            <div class="vf card-body" style="background-color: #fff;">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group ">
+                        {% if profile %}
+                        <img src="{{profile.product_img.url}}" alt="Avatar" class="avatar" style="height: 50px;width: 50px;border-radius: 50%;">
+                        {% else %}
+                        <img src="{% static 'images/avatar.png' %}" alt="Avatar" class="avatar" style="height: 50px;width: 50px;border-radius: 50%;">
+                        {% endif %}
+                        
+                        <input value={{user.first_name}} type="text" class="inp text-center form-control" id="inputAddress" name="first_name" placeholder="First Name" style="border-radius: 25px;width: 90%; margin-bottom: 30px;margin-left: 5%;margin-right: 5%;height: 35px;border-width: 0.01px;">
+                        <input value={{user.last_name}} type="text" class="inp text-center form-control" id="inputAddress" name="last_name" placeholder="Last Name" style="border-radius: 25px;width: 90%; margin-bottom: 30px;margin-left: 5%;margin-right: 5%;height: 35px;border-width: 0.01px;">
+                        <input value={{user.email}} class="inp text-center form-control" id="inputEmail4" type="email" name="email" placeholder="Email" style="border-radius: 25px;width: 90%; margin-bottom: 30px;margin-left: 5%;margin-right: 5%;height: 35px;border-width: 0.01px;">
+                    </div>
+    
+                    <button type="submit" class="sign-in btn btn-default" style="height: 35px;border-radius: 25px;">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

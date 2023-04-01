@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+	<div class="login card" style="border-radius: 10%;">
+            <h2 class="had card-header text-center" style="background-color: #fff; border-width: 0; margin-bottom: 50px;">View</h2>
+            
+                <div class="form-group " style="margin-bottom: 50px;">
+                    <li class="list-group-item " style="">
+                        <img src="{{task.profile.product_img.url}}" alt="Avatar" class="" style="height: 50px;width: 50px;border-radius: 50%;margin-left: 45%; ">
+                    </li>
+                    <li class="mh list-group-item text-center" style="font-family: 'Barlow Condensed', sans-serif;height: 45px;">Author: {{task.author.full_name}}</li>
+                    <li class="mh list-group-item text-center" style="height: 45px;font-family: 'Barlow Condensed', sans-serif;height: 45px;">Task: {{task.task}}</li>
+                    <li class="mh list-group-item text-center" style="height: 45px;font-family: 'Barlow Condensed', sans-serif;height: 45px;">Description: {{task.description}}</li>
+                    <li class="mh list-group-item text-center" style="height: 45px;font-family: 'Barlow Condensed', sans-serif;height: 45px;">Date Added: {{task.date}}</li>
+                </div>
+
+	</div>
+{% endblock %}

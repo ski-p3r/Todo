@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<div class="login card" style="border-radius: 10%;">
+            <h2 class="had card-header text-center" style="background-color: #fff; border-width: 0; margin-bottom: 50px;">Edit</h2>
+            <form action=" {% url 'edit_task' task.id %}"  method="POST">
+                {% csrf_token %}
+                <div class="form-group ">
+                    <input value={{task.task}} class="inp text-center form-control" id="inputAddress" type="text" name="task" placeholder="Title" style="border-radius: 25px;width: 90%; margin-bottom: 30px;margin-left: 5%;margin-right: 5%;height: 35px;border-width: 0.01px;">
+                    <input value={{task.description}} class="inp text-center form-control" id="inputAddress" type="text" name="description" placeholder="Description" style="border-radius: 25px;width: 90%; margin-bottom: 30px;margin-left: 5%;margin-right: 5%;height: 35px;border-width: 0.01px;">
+                </div>
+
+                <button type="submit" class="sign-in btn btn-default" style="height: 35px;border-radius: 25px;">Save</button>
+            </form>
+	</div>
+{% endblock %}

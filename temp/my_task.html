@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+	<div class="card-i card">
+		<div class="card-body">
+			<h2 class="card-title text-center ">ToDo</h2>
+			<li class="mh list-group-item" style="height: 45px;">
+				<a class="li-manm nav-link" href="{% url 'create_task' %}"><i class="jh fa fa-plus-square fa-lg"  aria-hidden="true">Add</i></a>
+			</li>
+			<table class="text-center">
+				<tr>
+					<th>Profile</th>
+					<th>Author</th>
+					<th>Task</th>
+					<th>Date</th>
+					<th>Action</th>
+				</tr>
+				{% for i in task %}
+				<tr>
+					<td>
+						<img src="{{i.profile.product_img.url}}" alt="Avatar" class="avatar" style="margin-left: 5px; height: 50px;width: 50px;border-radius: 50%;">
+					</td>
+					<td>{{ i.author.full_name }}</td>
+					<td>{{i.task}}</td>
+					<td>{{i.date}}</td>
+					<td>
+						<a href="{% url 'view_task' i.id %}" style="margin-right: 5px;"> 
+							<i class="fa fa-eye fa-lg text-primary" aria-hidden="true"></i>
+						</a>
+						<a href="{% url 'edit_task' i.id %}"style="margin-right: 5px;">
+							<i class="fa fa-pencil-square fa-lg text-success" aria-hidden="true"></i>
+						</a>
+						<a href="{% url 'delete_task' i.id %}" style="margin-right: 5px;"> 
+							<i class="fa fa-trash fa-lg text-danger"></i>
+						</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+{% endblock content %}	
+

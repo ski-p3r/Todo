@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+	<div class="cd card">
+        <div class="man">
+            {% include 'side.html' %}
+            <div class="vf card-body" style="background-color: #fff;">
+                {% if profile %}
+                <img src="{{profile.product_img.url}}" alt="Avatar" class="avatar" style="height: 50px;width: 50px;border-radius: 50%;">
+                {% else %}
+                <img src="{% static 'images/avatar.png' %}" alt="Avatar" class="avatar" style="height: 50px;width: 50px;border-radius: 50%;">
+                {% endif %}
+                <table class="text-center">
+                    <tr class="text-center">
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.last_name}}</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>{{user.email}}</td>
+                        <td>Last Login:{{user.last_login}}</td>
+                    </tr>
+                </table>
+                <a class="gt btn btn-danger" href="{% url 'acc_del' %}" >
+                    <i class="fa fa-trash-o fa-lg"></i> Delete Account</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

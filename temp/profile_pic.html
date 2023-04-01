@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+	<div class="cd card">
+        <div class="man">
+            {% include 'side.html' %}
+            <div class="vf card-body" style="background-color: #fff;">
+                <form action="" method="post" enctype='multipart/form-data'>
+                    {% include 'alerts.html' %}
+                    {% csrf_token %}
+                    <div class="form-group " enctype='multipart/form-data'>
+                        {% if profile %}
+                        <img src="{{profile.product_img.url}}" alt="Avatar" class="avatar" style="height: 50px;width: 50px;border-radius: 50%;">
+                        {% else %}
+                        <img src="{% static 'images/avatar.png' %}" alt="Avatar" class="avatar" style="height: 50px;width: 50px;border-radius: 50%;">
+                        {% endif %}
+                        
+                        <input type="file" class="text-center form-control" id="inputAddress" name="image" >
+                    </div>
+    
+                    <button type="submit" class="sign-in btn btn-default" style="height: 35px;border-radius: 25px;">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
